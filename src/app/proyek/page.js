@@ -1,12 +1,26 @@
-export default function Proyek () {
+import ProyekCard from "@/components/ProyekCard";
+import { proyek } from "@/data/proyek";
+
+export const metadata = {
+    title: "Proyek | Ulil",
+    description: "Daftar proyek HTML, CSS, dan JavaScript karya Muhammad Ulil Azmi",
+};
+
+export default function Proyek() {
     return (
-        <main className="mx-auto mwax-w-5xl px-4 py-10">
+        <main className="mx-auto max-w-5xl px-4 py-10">
             <h1 className="text-3xl font-bold text-utama md:text-4xl">
-                Proyek Saya
+                Proyek saya
             </h1>
-            <p className="mt-3 text-lg text-gray-700 leading-relaxed">
-                Halaman ini akan berisi proyek saya            
+            <p className="mt-3 text-lg text-gray-700">
+                Kumpulan hasil belajar saya di Kelas Industri UBIG. Klik kartu untuk melihat detailnya.
             </p>
+
+            <div className="mt-8 grid gap-6 md:grid-cols-3">
+                {proyek.map((item) => (
+                    <ProyekCard key={item.slug} proyek={item} />
+                ))}
+            </div>
         </main>
     )
 }

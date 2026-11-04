@@ -1,6 +1,11 @@
+import Link from "next/link";
 import Hero from "@/components/Hero";
+import ProyekCard from "@/components/ProyekCard";
 import SkillCard from "@/components/SkillCard";
+import { proyek } from "@/data/proyek";
 import Kartu from "@/components/Kartu";
+
+const proyekTerbaru = proyek.slice(-3);
 
 const hobi = [
   "Membaca buku dan dokumentasi teknologi",
@@ -39,35 +44,6 @@ export default function Home() {
         tagline="Siswa kelas XI SMK, calon Junior Web Developer di Kelas Industri UBIG."
       />
 
-      {/* 1. Kartu Tentang Saya */}
-      <Kartu judul="Tentang Saya">
-        <p className="text-gray-700 leading-relaxed">
-          Saya adalah siswa kelas XI SMK yang sedang mengikuti program Kelas Industri UBIG
-          untuk mendalami web development. Memiliki minat yang besar dalam mempelajari teknologi web
-          modern seperti JavaScript dan Next.js, serta bertekad untuk menjadi seorang Junior Web Developer
-          yang kompeten dan siap berkontribusi di industri digital.
-        </p>
-      </Kartu>
-
-      {/* 2. Kartu Hobi dan Cita-cita berdampingan (md:grid-cols-2) */}
-      <div className="grid gap-6 md:grid-cols-2">
-        <Kartu judul="Hobi">
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
-            {hobi.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-        </Kartu>
-
-        <Kartu judul="Cita-cita">
-          <ol className="list-decimal pl-5 space-y-1 text-gray-700">
-            {rencana.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ol>
-        </Kartu>
-      </div>
-
       {/* 3. Kartu Keahlian */}
       <Kartu judul="Keahlian">
         <div className="grid gap-4 md:grid-cols-3">
@@ -77,29 +53,18 @@ export default function Home() {
         </div>
       </Kartu>
 
-      {/* 4. Kartu Jadwal Belajar */}
-      <Kartu judul="Jadwal Belajar">
-        <div className="overflow-x-auto">
-          <table className="w-full text-left">
-            <thead className="bg-utama text-white">
-              <tr>
-                <th className="p-3">Hari</th>
-                <th className="p-3">Jam</th>
-                <th className="p-3">Kegiatan</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y divide-gray-200">
-              {jadwal.map((item) => (
-                <tr key={item.hari} className="hover:bg-gray-50">
-                  <td className="p-3 font-medium text-gray-800">{item.hari}</td>
-                  <td className="p-3 text-gray-700">{item.jam}</td>
-                  <td className="p-3 text-gray-700">{item.kegiatan}</td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <section className="mt-10">
+        <h2 className="mb-4 text-2xl font-bold text-utama">ProyekTerbaru</h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          {proyekTerbaru.map((item) => (
+            <ProyekCard key={item.slug} proyek={item} />
+          ))}
         </div>
-      </Kartu>
+
+        <Link href="/proyek" className="mt-6 inline-block rounded-lg bg-utama px-5 py-2 font-semibold text-white">
+          Lihat semua proyek
+        </Link>
+      </section>
     </main>
   );
 }
