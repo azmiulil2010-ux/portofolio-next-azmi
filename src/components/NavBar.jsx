@@ -1,3 +1,4 @@
+
 "use client";
 
 import Link from "next/link";
@@ -11,23 +12,28 @@ const menu = [
 ];
 
 export default function Navbar() {
-    const pathName = usePathname();
+    const pathname = usePathname();
+
     return (
         <header className="bg-utama text-white">
             <nav className="mx-auto flex max-w-5xl flex-col gap-3 px-4 py-4 md:flex-row md:items-center md:justify-between">
                 <Link href="/" className="text-xl font-bold">
                     Muhammad Ulil Azmi
                 </Link>
+
                 <ul className="flex flex-wrap gap-x-5 gap-y-2">
                     {menu.map((item) => {
                         let kelas = "text-gray-200 hover:text-white";
                         let aktif = pathname.startsWith(item.href);
+
                         if (item.href === "/") {
                             aktif = pathname === "/";
                         }
+
                         if (aktif) {
                             kelas = "font-bold text-white underline underline-offset-8";
                         }
+
                         return (
                             <li key={item.href}>
                                 <Link href={item.href} className={kelas}>
