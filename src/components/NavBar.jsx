@@ -1,8 +1,8 @@
-
 "use client";
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import TombolTema from "@/components/TombolTema";
 
 const menu = [
     { href: "/", label: "Beranda" },
@@ -21,28 +21,31 @@ export default function Navbar() {
                     Muhammad Ulil Azmi
                 </Link>
 
-                <ul className="flex flex-wrap gap-x-5 gap-y-2">
-                    {menu.map((item) => {
-                        let kelas = "text-gray-200 hover:text-white";
-                        let aktif = pathname.startsWith(item.href);
+                <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+                    <ul className="flex flex-wrap gap-x-5 gap-y-2">
+                        {menu.map((item) => {
+                            let kelas = "text-gray-200 hover:text-white";
+                            let aktif = pathname.startsWith(item.href);
 
-                        if (item.href === "/") {
-                            aktif = pathname === "/";
-                        }
+                            if (item.href === "/") {
+                                aktif = pathname === "/";
+                            }
 
-                        if (aktif) {
-                            kelas = "font-bold text-white underline underline-offset-8";
-                        }
+                            if (aktif) {
+                                kelas = "font-bold text-white underline underline-offset-8";
+                            }
 
-                        return (
-                            <li key={item.href}>
-                                <Link href={item.href} className={kelas}>
-                                    {item.label}
-                                </Link>
-                            </li>
-                        );
-                    })}
-                </ul>
+                            return (
+                                <li key={item.href}>
+                                    <Link href={item.href} className={kelas}>
+                                        {item.label}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                    <TombolTema />
+                </div>
             </nav>
         </header>
     );
