@@ -28,12 +28,12 @@ export const metadata = {
 export default function Tentang() {
     return (
         <main className="mx-auto max-w-5xl px-4 py-10 space-y-6">
-            <h1 className="text-center text-3xl font-bold text-utama dark:text-sky-200 md:text-4xl">
+            <h1 className="text-center text-3xl font-bold text-primary md:text-4xl">
                 Tentang Saya
             </h1>
             {/* 1. Kartu Tentang Saya */}
             <Kartu judul="Tentang Saya">
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                     Saya adalah siswa kelas XI SMK yang sedang mengikuti program Kelas Industri UBIG
                     untuk mendalami web development. Memiliki minat yang besar dalam mempelajari teknologi web
                     modern seperti JavaScript dan Next.js, serta bertekad untuk menjadi seorang Junior Web Developer
@@ -44,7 +44,7 @@ export default function Tentang() {
             {/* 2. Kartu Hobi dan Cita-cita berdampingan (md:grid-cols-2) */}
             <div className="grid gap-6 md:grid-cols-2 font-bold">
                 <Kartu judul="Hobi">
-                    <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+                    <ul className="list-disc pl-5 space-y-1 text-muted-foreground">
                         {hobi.map((item) => (
                             <li key={item}>{item}</li>
                         ))}
@@ -52,7 +52,7 @@ export default function Tentang() {
                 </Kartu>
 
                 <Kartu judul="Cita-cita">
-                    <ol className="list-decimal pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+                    <ol className="list-decimal pl-5 space-y-1 text-muted-foreground">
                         {rencana.map((item) => (
                             <li key={item}>{item}</li>
                         ))}
@@ -74,9 +74,9 @@ export default function Tentang() {
                         <tbody className="divide-y divide-gray-200">
                             {jadwal.map((item) => (
                                 <tr key={item.hari} className="hover:bg-gray-50">
-                                    <td className="p-3 font-medium text-gray-800 dark:text-gray-100">{item.hari}</td>
-                                    <td className="p-3 text-gray-700 dark:text-gray-300">{item.jam}</td>
-                                    <td className="p-3 text-gray-700 dark:text-gray-300">{item.kegiatan}</td>
+                                    <td className="p-3 font-medium text-foreground">{item.hari}</td>
+                                    <td className="p-3 text-muted-foreground">{item.jam}</td>
+                                    <td className="p-3 text-muted-foreground">{item.kegiatan}</td>
                                 </tr>
                             ))}
                         </tbody>
