@@ -1,4 +1,5 @@
 import FormKontak from "@/components/FormKontak";
+import { CardContent } from "@/components/ui/card";
 
 export const metadata = {
     title: "Kontak | Ulil",
@@ -16,35 +17,32 @@ export default function Kontak() {
             </p>
 
             <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
-                <div className="md:col-span-2 rounded-xl border border-border bg-card p-6 shadow-sm">
-                    <FormKontak />
-                </div>
-
-                <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
-                    <h2 className="text-xl font-bold text-primary mb-3">
-                        Temukan Saya di
-                    </h2>
-                    <div className="space-y-2 text-sm">
-                        <div>
-                            <a
-                                href="https://github.com/azmiulil2010-ux"
-                                target="_blank"
-                                rel="noreferrer"
-                                className="text-aksen hover:underline font-medium"
-                            >
-                                GitHub
-                            </a>
-                        </div>
-                        <div>
-                            <a
-                                href="mailto:ulilazmi2010@gmail.com"
-                                className="text-aksen hover:underline font-medium"
-                            >
-                                ulilazmi2010@gmail.com
-                            </a>
-                        </div>
-                    </div>
-                </div>
+                <Card className="md:cols-span-2">
+                    <CardContent>
+                        <FormKontak />
+                    </CardContent>
+                </Card>
+                <Card>
+                    <CardHeader>
+                        <CardTitle className="text-2xl font-bold text-primary">Temukan Saya di</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                        <ul className="space-y-2">
+                            <li>
+                                <a href="https://github.com/azmiulil2010-ux"
+                                    target="_blank" className="text-aksen hover:underline">
+                                    GitHub
+                                </a>
+                            </li>
+                            <li>
+                                <a href="mailto:andi.pratama@example.com"
+                                    className="text-aksen hover:underline">
+                                    azmiulil2010@gmail.com
+                                </a>
+                            </li>
+                        </ul>
+                    </CardContent>
+                </Card>
             </div>
         </main>
     );
