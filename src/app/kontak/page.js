@@ -1,5 +1,8 @@
 import FormKontak from "@/components/FormKontak";
 import { CardContent } from "@/components/ui/card";
+import { Card } from "@/components/ui/card";
+import { CardHeader } from "@/components/ui/card";
+import { CardTitle } from "@/components/ui/card";
 
 export const metadata = {
     title: "Kontak | Ulil",
